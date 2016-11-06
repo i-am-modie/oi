@@ -2,20 +2,15 @@
 #include <vector>
 
 using namespace std;
-struct zapytania{
-    int liczba;
-    int x;
-    int y;
-};
 
 int main() {
     int i_Zapytan;
     cin >> i_Zapytan;
-    zapytania * t_zapytania = new zapytania [i_Zapytan];
+    int * t_zapytania = new int [i_Zapytan];
     int max_zapytanie=0;
     for (int i = 0; i < i_Zapytan; i++) {
-        cin >> t_zapytania[i].liczba;
-        if(t_zapytania[i].liczba>max_zapytanie)max_zapytanie=t_zapytania[i].liczba;
+        cin >> t_zapytania[i];
+        if(t_zapytania[i]>max_zapytanie)max_zapytanie=t_zapytania[i];
     }
     vector < long int > ciag;
     int n=0;
@@ -46,7 +41,7 @@ int main() {
     for (int i = 0; i < i_Zapytan; i++) {
         for( int p=ciag.size(); p>0; p--){
             for (int q = p-1; q >=0; q--) {
-                if(t_zapytania[i].liczba==ciag[p]-ciag[q]){
+                if(t_zapytania[i]==ciag[p]-ciag[q]){
                     cout << p+1 << " " << q+1 << endl;
                 }
             }
