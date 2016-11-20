@@ -7,6 +7,7 @@ struct trap{
 };
 
 int main() {
+	ios_base::sync_with_stdio(0);
     int x=0, y=0, clicks=0;
     int i_Traps, i_Length;
     bool err=0;

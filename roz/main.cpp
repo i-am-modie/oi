@@ -4,6 +4,7 @@
 using namespace std;
 
 int main() {
+    ios_base::sync_with_stdio(0);
     int i_Zapytan;
     cin >> i_Zapytan;
     int * t_zapytania = new int [i_Zapytan];
@@ -12,18 +13,18 @@ int main() {
         cin >> t_zapytania[i];
         if(t_zapytania[i]>max_zapytanie)max_zapytanie=t_zapytania[i];
     }
-    vector < long int > ciag;
-    int n=0;
-    int i_roznica=1;
-    int pom=3;
+    vector < unsigned long long > ciag;
+    unsigned int n=0;
+    unsigned int i_roznica=1;
+    unsigned int pom=3;
     while(i_roznica<max_zapytanie){
         if(n<2)ciag.push_back(n+1);
         else{
             if(n%2==0)ciag.push_back(ciag[n-1]*2);
             else{
                 pom=i_roznica+1;
-                for( int i=n-1; i>0; i--){
-                    for (int j = i-1; j >=0; j--) {
+                for( long i=n-1; i>0; i--){
+                    for (long j = i-1; j >=0; j--) {
                         if(pom==ciag[i]-ciag[j]){
                             i=n;
                             pom++;
@@ -35,7 +36,6 @@ int main() {
                 ciag.push_back(ciag[n-1]+i_roznica);
             }
         }
-        cout << n << ": " << ciag[n] << endl;
         n++;
     }
     for (int i = 0; i < i_Zapytan; i++) {
